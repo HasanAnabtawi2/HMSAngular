@@ -1,0 +1,118 @@
+<div class="container-fluid vh-100 overflow-auto">
+  <div class="row h2 mb-3 mt-4">Invoices</div>
+
+  <div class="row me-2 search-background rounded pt-3">
+    <div class="d-flex justify-content-between align-items-center gap-1">
+      <label class="me-3 text-nowrap">Payment Status</label>
+      <select
+        #paymentStatusSearch
+        class="form-select me-3"
+        aria-label="Default select example"
+      >
+        <option selected value="">All</option>
+        <option value="Paid">Paid</option>
+        <option value="UnPaid">UnPaid</option>
+      </select>
+
+      <label class="me-3 text-nowrap">Guest Name</label>
+      <input
+        #guestNameSearch
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+
+      <label class="me-3 text-nowrap">Room Type</label>
+      <input
+        #roomTypeSearch
+        class="form-control"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+
+      <button
+        class="btn btn-success text-nowrap ms-1"
+        (click)="onApplyFilters()"
+      >
+      <i class="bi bi-funnel-fill"></i>  Apply Filters
+      </button>
+    </div>
+  </div>
+  <div class="row me-2">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Invoice No.</th>
+          <th scope="col">Guest Name</th>
+          <th scope="col">Room Type</th>
+          <th scope="col">Invoice Date</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Price/ Day</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Payment Status</th>
+          <th scope="col" class="col-3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoice of invoices; let i = index">
+          <td class="align-content-center font-bold" scope="row">
+            {{ i + 1 }}
+          </td>
+          <td class="align-content-center">
+            {{ invoice.id }}
+          </td>
+          <td class="align-content-center">{{ invoice.guestName }}</td>
+          <td class="align-content-center">{{ invoice.roomType }}</td>
+          <td class="align-content-center">
+            {{ invoice.invoiceDate | date : "dd/MM/yyyy" }}
+          </td>
+          <td class="align-content-center">{{ invoice.duration }}</td>
+          <td class="align-content-center">{{ invoice.pricePerDay }}</td>
+          <td class="align-content-center">{{ invoice.totalAmount }}</td>
+          <td class="align-content-center">
+            <div
+              class="text-center p-2 badge2"
+              [ngClass]="{
+              'bg-success': invoice.paymentStatus == 'Paid',
+              'bg-danger': invoice.paymentStatus == 'UnPaid',
+            
+            }"
+            >
+              <span> {{ invoice.paymentStatus }}</span>
+            </div>
+          </td>
+
+          <td class="text-end pe-3">
+            <a
+              class="btn btn-info btn-lg active me-2 button-Edit"
+              role="button"
+              aria-pressed="true"
+              data-bs-target="#MarkAsPaidModal"
+              data-bs-toggle="modal"
+              (click)="selectInvoiceId(invoice.id)"
+            >
+              Mark As Paid</a
+            >
+
+            <a
+              class="btn btn-outline-light btn-lg active button-Delete"
+              role="button"
+              aria-pressed="true"
+            >
+              <i class="bi bi-trash-fill"></i> Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-mark-as-paid
+  [modalId]="'MarkAsPaidModal'"
+  [invoiceId]="selectedInvoiceId"
+  [buttonValue]="'Mark As Paid'"
+></app-mark-as-paid>

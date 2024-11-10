@@ -1,0 +1,11 @@
+*{
+    font-size: x-large;
+}
+.logo{
+    font-size: 150px;
+    color:rgb(94, 94, 94);
+}
+
+.invalid-feedback{
+    display: block;
+}

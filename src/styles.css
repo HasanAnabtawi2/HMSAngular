@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+th {
+    background-color: #F7F9FD;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+.button-Edit{
+    background-color: #02B7B7;
+    color:white;
+}
+
+.button-Delete{
+    background-color: #B70205;
+    color:white;
+}
+
+.search-background {
+    background-color: #F7F9FD;
+}
+
+.background-grey{
+    background-color: #DFDFDF;
+}
+
+.background-white{
+    background-color: #ffffff;
+}

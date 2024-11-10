@@ -1,0 +1,106 @@
+<!-- Modal -->
+<div  class="modal fade" id="AddRoomType" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Room Type</h5>
+        <button
+        #closeModal
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form1">
+          <div class="form-group">
+            <label>Room Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="RoomType"
+              placeholder="Room Type"
+              formControlName="txtRoomType"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form1.controls['txtRoomType'].touched &&
+                form1.hasError('required', 'txtRoomType')
+              "
+            >
+              This Field is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Capacity</label>
+            <input
+              type="number"
+              class="form-control"
+              id="Capacity"
+              placeholder="Capacity"
+              formControlName="txtCapacity"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form1.controls['txtCapacity'].touched &&
+                form1.hasError('required', 'txtCapacity')
+              "
+            >
+              This Field is required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form1.controls['txtCapacity'].touched &&
+                form1.hasError('min', 'txtCapacity')
+              "
+            >
+              The Price must be greater than or equal 1
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Price"
+              placeholder="Price"
+              formControlName="txtPrice"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form1.controls['txtPrice'].touched &&
+                form1.hasError('required', 'txtPrice')
+              "
+            >
+              This Field is required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form1.controls['txtPrice'].touched &&
+                form1.hasError('min', 'txtPrice')
+              "
+            >
+              The Price must be greater than or equal 1
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100 mt-3"
+            (click)="onSubmit()"
+          >
+            Add Room Type
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

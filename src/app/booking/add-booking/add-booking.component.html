@@ -1,0 +1,105 @@
+<!-- Modal -->
+<div class="modal fade" id="AddBooking" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Room Type</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label>Guest Name</label>
+            <select class="form-select" formControlName="selectGuest">
+              <option selected disabled>Select Guest Name</option>
+              <option *ngFor="let guest of guests" [value]="guest.id">
+                {{ guest.firstName + " " + guest.lastName }}
+              </option>
+            </select>
+
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form.controls['selectGuest'].touched &&
+                form.hasError('required', 'selectGuest')
+              "
+            >
+              This Field is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Room Number</label>
+            <select class="form-select" formControlName="selectRoomNumber">
+              <option selected disabled>Select Room Number</option>
+              <option *ngFor="let room of rooms" [value]="room.id">
+                {{ room.roomNumber }}
+              </option>
+            </select>
+
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form.controls['selectRoomNumber'].touched &&
+                form.hasError('required', 'selectRoomNumber')
+              "
+            >
+              This Field is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Expected Check In</label>
+            <input
+              type="date"
+              class="form-control"
+              id="ExpectedCheckIn"
+              formControlName="dateExpectedCheckIn"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form.controls['dateExpectedCheckIn'].touched &&
+                form.hasError('required', 'dateExpectedCheckIn')
+              "
+            >
+              This Field is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Expected Check Out</label>
+            <input
+              type="date"
+              class="form-control"
+              id="ExpectedCheckOut"
+              formControlName="dateExpectedCheckOut"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                form.controls['dateExpectedCheckOut'].touched &&
+                form.hasError('required', 'dateExpectedCheckOut')
+              "
+            >
+              This Field is required
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100 mt-3"
+            (click)="onSubmit()"
+          >
+            Add Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

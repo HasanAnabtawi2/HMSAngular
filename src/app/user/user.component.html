@@ -1,0 +1,81 @@
+<div class="container-fluid vh-100 overflow-auto">
+  <div class="row h2 mb-3 mt-4">Users</div>
+
+  <div class="row me-2">
+    <div class="search-background container pt-3 rounded-top-4">
+      <div class="row">
+        <div class="col text-end me-3">
+          <a
+            href="#"
+            class="btn btn-lg active btn-primary"
+            role="button"
+            data-bs-toggle="modal"
+            data-bs-target="#AddUser"
+          >
+            <i class="bi bi-plus"></i> Add User</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row me-2">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date Of Birth</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col" class="col-4"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td class="align-content-center font-bold" scope="row">
+            {{ i + 1 }}
+          </td>
+          <td class="align-content-center">{{ user.username }}</td>
+          <td class="align-content-center">{{ user.name }}</td>
+          <td class="align-content-center">
+            {{ user.dob | date : "dd/MMM/yyyy" }}
+          </td>
+          <td class="align-content-center">{{ user.email }}</td>
+          <td class="align-content-center">{{ user.role }}</td>
+
+          <td class="text-end">
+            <a
+              class="btn btn-info btn-lg active me-2 button-Edit"
+              role="button"
+              data-bs-target="#EditUser"
+              data-bs-toggle="modal"
+              (click)="selectUsername(user.username)"
+            >
+              <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a
+              *ngIf="user.username != 'Hasan'"
+              class="btn btn-outline-light btn-lg active button-Delete"
+              role="button"
+              data-bs-toggle="modal"
+              data-bs-target="#deleteUser"
+              (click)="selectUsername(user.username)"
+            >
+              <i class="bi bi-trash-fill"> </i> Delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-add-user></app-add-user>
+<app-edit-user [selectedUser]="selectedUsername"></app-edit-user>
+<app-delete-user
+  (onRefresh)="LoadAll()"
+  [deletePath]="'User/'"
+  [userName]="selectedUsername"
+>
+</app-delete-user>

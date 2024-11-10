@@ -1,0 +1,257 @@
+<div class="container-fluid vh-100 overflow-auto">
+  <div class="row h2 mb-3 mt-4">Bookings</div>
+  <div class="row me-2">
+    <div class="search-background container pt-3 rounded-top-4">
+      <div class="d-flex justify-content-between align-items-center gap-1">
+        <label class="me-3">Status</label>
+        <select
+          #statusSearch
+          class="form-select me-3"
+          aria-label="Default select example"
+        >
+          <option selected value="">All</option>
+          <option value="Checked-In">Checked-In</option>
+          <option value="Checked-Out">Checked-Out</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Canceled">Canceled</option>
+        </select>
+
+        <label class="me-3 text-nowrap">Guest Name</label>
+        <input
+          #guestNameSearch
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+
+        <label class="me-3 text-nowrap">Room Number</label>
+        <input
+          #roomNumberSearch
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+
+        
+        <label class="me-3 text-nowrap">Check-In Date </label>
+        <input
+          #checkInDate
+          class="form-control"
+          type="date"
+          placeholder="Search"
+          aria-label="Search"
+        />
+
+        <label class="me-3 text-nowrap">Check-Out Date </label>
+        <input
+          #checkOutDate
+          class="form-control"
+          type="date"
+          placeholder="Search"
+          aria-label="Search"
+        />
+
+        
+
+        <button
+          class="btn btn-success text-nowrap ms-1"
+          (click)="applyFilters()"
+        >
+        <i class="bi bi-funnel-fill"></i>  Apply Filters
+        </button>
+
+        <a
+          class="btn btn-lg active btn-primary text-nowrap ms-3"
+          role="button"
+          aria-pressed="true"
+          data-bs-toggle="modal"
+          data-bs-target="#AddBooking"
+        >
+          <i class="bi bi-plus"></i> Add Booking
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row me-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Room Number</th>
+          <th scope="col">Guest Name</th>
+          <th scope="col">Expected Check-In</th>
+          <th scope="col">Expected Check-Out</th>
+          <th scope="col">Actual Check-In</th>
+          <th scope="col">Actual Check-Out</th>
+          <th scope="col">Payment Status</th>
+
+          <th scope="col">Booking Status</th>
+
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of bookings; let i = index">
+          <td class="align-content-center font-bold" scope="row">
+            {{ i + 1 }}
+          </td>
+          <td class="align-content-center">{{ book.roomNumber }}</td>
+          <td class="align-content-center">{{ book.guestName }}</td>
+          <td class="align-content-center">
+            {{ book.expectedcheckInDate | date : "dd/MM/yyyy" }}
+          </td>
+          <td class="align-content-center">
+            {{ book.expectedcheckOutDate | date : "dd/MM/yyyy" }}
+          </td>
+          <td class="align-content-center">
+            {{ book.actualcheckInDate | date : "dd/MM/yyyy" }}
+          </td>
+          <td class="align-content-center">
+            {{ book.actualcheckOutDate | date : "dd/MM/yyyy" }}
+          </td>
+          <td class="align-content-center">
+            <div
+              class="text-center p-2 badge2"
+              [ngClass]="{
+              'bg-success': book.paymentStatus == 'Paid',
+              'bg-danger': book.paymentStatus == 'UnPaid',
+            
+            }"
+            >
+              <span> {{ book.paymentStatus }}</span>
+            </div>
+          </td>
+
+          <td class="align-content-center">
+            <div
+              class="text-center p-2 badge2"
+              [ngClass]="{
+                'bg-success': book.status == 'Checked-In',
+                'bg-warning check-Out': book.status == 'Checked-Out',
+                'bg-secondary': book.status == 'Canceled',
+                'bg-primary': book.status == 'Confirmed'
+              }"
+            >
+              <span> {{ book.status }}</span>
+            </div>
+          </td>
+
+          <td class="col">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-outline-danger dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Actions
+              </button>
+              <div class="dropdown-menu ">
+                <a
+                  class="dropdown-item text-primary cusrsor-pointer"
+                  data-bs-target="#GenerateModal"
+                  data-bs-toggle="modal"
+                  title="Generate Invoice"
+                  (click)="selectBooking(book.id)"
+                >
+                  <i class="bi bi-receipt"></i> Generate Invoice</a
+                >
+                <a
+                  class="dropdown-item text-info cusrsor-pointer"
+                  data-bs-target="#EditBooking"
+                  data-bs-toggle="modal"
+                  title="Edit Booking"
+                  (click)="selectBooking(book.id)"
+                >
+                  <i class="bi bi-pencil-square"> </i> Edit</a
+                >
+                <a
+                  class="dropdown-item text-danger cusrsor-pointer"
+                  data-bs-target="#deleteConnfirmation"
+                  data-bs-toggle="modal"
+                  (click)="selectBooking(book.id)"
+                  title="Delete Booking"
+                >
+                  <i class="bi bi-trash-fill"></i> Delete</a
+                >
+
+                <a
+                  class="dropdown-item text-success cusrsor-pointer"
+                  data-bs-target="#checkInModal"
+                  data-bs-toggle="modal"
+                  (click)="selectBooking(book.id)"
+                  title="Check-In"
+                >
+                  <i class="bi bi-arrow-right-circle-fill"></i> Check-In</a
+                >
+
+                <a
+                  class="dropdown-item text-warning cusrsor-pointer"
+                  data-bs-target="#checkOutModal"
+                  data-bs-toggle="modal"
+                  (click)="selectBooking(book.id)"
+                  title="Check-Out"
+                >
+                  <i class="bi bi-arrow-left-circle-fill"></i> Check-Out</a
+                >
+
+                <a
+                  class="dropdown-item text-secondary cusrsor-pointer"
+                  data-bs-target="#cancelModal"
+                  data-bs-toggle="modal"
+                  (click)="selectBooking(book.id)"
+                  title="Cancel Booking"
+                >
+                  <i class="bi bi-calendar-x-fill"></i> Cancel Booking</a
+                >
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-add-booking></app-add-booking>
+<app-delete-confirm
+  (onRefresh)="LoadAll()"
+  [id]="selectedBookingId"
+  [deletePath]="'Booking/'"
+></app-delete-confirm>
+
+<app-confirmation
+  (onRefresh)="LoadAll()"
+  [modalId]="'checkInModal'"
+  [bookingId]="selectedBookingId"
+  [buttonValue]="'Check In'"
+  [path]="'Booking/CheckIn'"
+></app-confirmation>
+
+<app-confirmation
+  (onRefresh)="LoadAll()"
+  [modalId]="'checkOutModal'"
+  [bookingId]="selectedBookingId"
+  [buttonValue]="'Check Out'"
+  [path]="'Booking/CheckOut'"
+></app-confirmation>
+
+<app-confirmation
+  (onRefresh)="LoadAll()"
+  [modalId]="'cancelModal'"
+  [bookingId]="selectedBookingId"
+  [buttonValue]="'Canecl Booking'"
+  [path]="'Booking/CancelBooking'"
+></app-confirmation>
+
+<app-confirmation
+  (onRefresh)="LoadAll()"
+  [modalId]="'GenerateModal'"
+  [bookingId]="selectedBookingId"
+  [buttonValue]="'Generate Invoice'"
+  [path]="'Invoice/GenerateInvoice'"
+></app-confirmation>
+<app-edit-booking [selectedBookingId]="selectedBookingId"></app-edit-booking>

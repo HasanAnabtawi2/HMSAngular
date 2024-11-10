@@ -1,0 +1,53 @@
+<div class="modal fade" id="AddUSerToRole" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Add User To {{ selectedRoleName }} role
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label>User</label>
+            <select
+              class="form-select"
+              formControlName="selectUser"
+              aria-label="Room Type"
+            >
+              <option selected disabled>Select room Type</option>
+              <option
+                *ngFor="let user of usersNotInRole"
+                [value]="user.username"
+              >
+                {{ user.username }}
+              </option>
+            </select>
+            <span
+              *ngIf="
+                form.controls['selectUser'].touched &&
+                form.hasError('required', 'selectUser')
+              "
+            >
+              This Field is required</span
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100 mt-3"
+            (click)="onSubmit()"
+          >
+            Add User To Role
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

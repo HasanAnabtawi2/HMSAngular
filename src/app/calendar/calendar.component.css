@@ -1,0 +1,51 @@
+th {
+  background-color: #F7F9FD;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+.button-Edit{
+  background-color: #02B7B7;
+  color:white;
+}
+
+.button-Delete{
+  background-color: #B70205;
+  color:white;
+}
+
+.search-background {
+  background-color: #F7F9FD;
+}
+
+.background-grey{
+  background-color: #DFDFDF;
+}
+
+.background-white{
+  background-color: #ffffff;
+}
+
+.badge2{
+
+  color: white; 
+  border-radius: 15px;
+  
+  font-weight: bold;
+ 
+
+
+}
+
+.available{
+  background-color: #6ab187;
+  color:white
+}
+
+.booked{
+  background-color: #d32d41;
+  color:white
+
+
+}

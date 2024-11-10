@@ -1,0 +1,21 @@
+.error-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .error-code {
+    font-size: 72px;
+    font-weight: bold;
+    color: #ff5722;
+  }
+  .error-message {
+    font-size: 18px;
+    color: #555;
+  }
+  .btn-primary {
+    padding: 10px 20px;
+    border-radius: 6px;
+  }

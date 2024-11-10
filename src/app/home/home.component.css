@@ -1,0 +1,7 @@
+.background-grey{
+    background-color: #ffffff;
+}
+
+.row > *{
+    padding-left:0;
+}

@@ -1,0 +1,67 @@
+<div class="container-fluid vh-100 overflow-auto">
+    <div class="row h2 mb-3 mt-4">Booking Calendar</div>
+  
+    <div class="row me-2 search-background rounded pt-3">
+      <div class="d-flex justify-content-between align-items-center gap-1">
+        <label class="me-3 text-nowrap">Room Type</label>
+        <select
+          #roomTypeSearch
+          class="form-select me-3"
+          (change)="onChange()"
+          aria-label="Default select example"
+          
+        >
+          <option selected value="">All</option>
+          <option *ngFor="let type of roomTypes" [value] = 'type.typeName'  >{{type.typeName}} </option>
+          
+        </select>
+  
+       
+  
+        <label class="me-3 text-nowrap">Start Date</label>
+        <input
+          #startDateSearch
+          class="form-control"
+          type="date"
+          [min]="startDateString"
+          
+
+          [value]="startDateString"
+
+          (change)="onChange()"
+    
+        />
+  
+
+      </div>
+    </div>
+    <div class="row me-2">
+      <table class="table table-bordered table-hover ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Room Type</th>
+            <th scope="col" *ngFor="let date of dates,let i=index">{{date | date:'mediumDate'}}</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of roomAvailability; let i = index">
+            <td class="align-content-center font-bold" scope="row">
+              {{ i + 1 }}
+            </td>
+            <td class="align-content-center">
+              {{ room.roomNumber }}
+            </td>
+            <td class="align-content-center">{{ room.roomType }}</td>
+            <td class="align-content-center" *ngFor="let available of room.daysAvailability" [ngClass]="available?'available':'booked'">{{  available?'Available':'Booked' }}</td>
+       
+        
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
