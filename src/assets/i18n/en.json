@@ -1,0 +1,177 @@
+{
+    "Login":{
+        
+        "username":"username",
+        "Password":"Password",
+        "signIn":"signIn",
+        "Welcome":"Welcome to Hotel Management System",
+        "Title":"Please Sign In To Enter the System"
+
+    },
+
+    "Sidebar":{
+        
+        "Title":"Hotel Management",
+        "RoomType":"Room Types",
+        "Rooms":"Rooms",
+        "Guests":"Guests",
+        "Bookings":"Bookings",
+        "Invoices":"Invoices",
+        "Roles":"Roles",
+        "EditPassword" : "Edit Password",
+        "Logout" : "Logout"
+           
+
+    },
+    "RoomTypes":{
+
+        "RoomTypesTitle":"Room Types",
+        "Type":"Type",
+        "Capacity":"Capacity",
+        "Price":"Price",
+        "AddRoomType":"Add Room Type",
+        "EditRoomType":"Edit Room Type"
+
+
+    },
+
+    "Crud":{
+        "Edit":"Edit",
+        "Delete":"Delete",
+        "ApplyFilters":"Apply Filters",
+        "Search":"Search",
+        "All":"All",
+        "Available":"Available",
+        "Occupied":"Occupied"
+    },
+    "Rooms":{
+
+        "Rooms":"Rooms",
+        "RoomType":"Room Type",
+        "Status":"Status",
+        "RoomNumber":"Room Number",
+
+        "Capacity":"Capacity",
+        "Price":"Price",
+        "AddRoom":"Add Room",
+        "Select":"Select Room Type",
+        "EditRoom":"Edit Room"
+
+
+    },
+    "Guests":{
+        "FirstName":"First Name",
+        "LastName":"Last Name",
+        "DateOfBirth":"Date Of Birth",
+        "Email":"Email",
+        "ContactNumber":"Contact Number",
+        "DocumentNumber":"Document Number",
+        "GuestName":"Guest Name",
+        "AddGuest":"Add Guest",
+        "EditGuest":"Edit Guest",
+        "Guests":"Guests"
+    },
+    "Calendar":{
+        "Booked":"Booked",
+        "Available":"Available",
+        "BookingCalendar":"Booking Calendar",
+        "start":"Start Date"
+    },
+    "Invoices":{
+        "InvoicesTitle":"Invoices",
+        "PricePerDay":"Price/ Day",
+        "TotalAmount":"Total Amount",
+        "PaymentStatus":"Payment status",
+        "InvoiceDate":"Invoice Date",
+        "InvoiceNumber":"Invoice No.",
+        "MarkAsPaid":"Mark As Paid",
+        "Paid":"Paid",
+        "Unpaid":"Unpaid",
+        "Invoices":"Invoices",
+        "Duration":"Duration"
+
+
+    },
+
+    "Bookings":{
+        "ExpectedCheckIn":"Expected Check-In",
+        "ExpectedCheckOut":"Expected Check-Out",
+        "ActualCheckIn":"Actual Check-In",
+        "ActualCheckOut":"Actual Check-Out",
+        "Actions":"Actions",
+        "GenerateInvoice":"Generate Invoice",
+        "CheckIn":"Check In",
+        "CheckOut":"Check Out",
+        "CancelBooking":"Cancel Booking",
+        "CheckInDate":"Check-In Date",
+        "CheckOutDate":"Check-Out Date",
+        "AddBooking":"Add Booking",
+        "EditBooking":"Edit Booking",
+        "Bookings":"Bookings",
+        "Checked-In":"Checked-In",
+        "Checked-Out":"Checked-Out",
+        "Canceled":"Canceled",
+        "Confirmed":"Confirmed",
+        "status":"Booking Status",
+        "SelectGuest":"Select Guest Name",
+        "SelectRoom":"Select Room Number"
+        
+        },
+        "Users":{
+            "username":"Username",
+            "Name":"Name",
+            "DateOfBirth":"Date Of Birth",
+             "Email":"Email",
+             "Role":"Role",
+            "AddUser":"Add User",
+                "EditUser":"Edit User",
+                "BirthDate":"Birth Date",
+                "Users":"Users",
+                "Password":"Password",
+                "ConfirmPassword":"Confirm Password"
+
+        },
+        "Roles":{
+            "AddUserToRole":"Add User To Role",
+            "DeleteUserFromRole":"Delete User From Role",
+            "ShowUsersInRole":"Show Users In Role",
+            "RoleName":"Role Name",
+            "AddUserTo":"Add User To",
+            "RemoveUserFrom":"Remove User From",
+            "UsersIn" :" Users In",
+            "Role":"Role",
+            "Roles":"Roles"
+
+
+        },
+        "Validation":{
+            "required":"This Field is required",
+            "minLength":"This Field is required",
+            "price":"The Price must be greater than or equal 1",
+            "Capacity":"The Capacity must be greater than or equal 1",
+            "Email":"Invalid Email Format",
+            "Phone":"Invalid Phone Format",
+            "PasswordMin":"The minimum length of password is 8",
+            "specialChar":"Password must contains special characters, upercase,lowercase letters and numbers",
+            "confirmPass":"The confirm password mismatch the password"
+        },
+        "Language":{
+            "Language":"Language",
+            "en":"English",
+            "ar":"Arabic"
+        },
+        "Conf":{
+            "Qu":"Are you sure to delete",
+            "close":"close",
+            "book":"Are you sure to",
+            "del":"Delete Confirmation"
+            
+        }
+
+        
+    
+    
+
+
+
+}

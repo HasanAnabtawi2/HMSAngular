@@ -4,30 +4,34 @@ import { Observable } from 'rxjs';
 import { UserGetDTO } from '../DTOs/UserGetDTO';
 import { UserPostDTO } from '../DTOs/UserPostDTO';
 import { User } from '../DTOs/User';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient:HttpClient) {
+  baseUrl!:string
+  constructor(private httpClient:HttpClient) { 
+
+    this.baseUrl=environment.APIUrl
   }
 
     LoadAll():Observable<any>{
-      return this.httpClient.get<UserGetDTO>('http://localhost/Hms/api/User');
+      return this.httpClient.get<UserGetDTO>(this.baseUrl+'User');
 
       
     }
 
     Add(user:UserPostDTO):Observable<any>{
-      return this.httpClient.post<any>('http://localhost/Hms/api/User',user);
+      return this.httpClient.post<any>(this.baseUrl+'User',user);
 
       
     }
 
 
     Delete(username:string):Observable<any>{
-      return this.httpClient.delete<any>('http://localhost/Hms/api/User?username='+username);
+      return this.httpClient.delete<any>(this.baseUrl+'User?username='+username);
 
       
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserPostDTO } from 'src/app/DTOs/UserPostDTO';
 import { AccountService } from 'src/app/Services/account.service';
 
@@ -25,11 +25,14 @@ export class AddUserComponent implements OnInit {
       'txtEmail':['',Validators.required],
       'dateDOB':['',Validators.required],
 
-      'txtPassword':['',Validators.required],
+      'txtPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)])],
+      'txtConfirmPassword':['',Validators.required],
      
 
           
-  });
+  },
+  { validators: this.passwordMatchValidator()}
+  );
 
 
   }
@@ -38,6 +41,21 @@ export class AddUserComponent implements OnInit {
 
 
 
+
+   passwordMatchValidator(): ValidatorFn  {
+    return (control: AbstractControl ): ValidationErrors | null => {
+      const password = control.get('txtPassword')?.value;
+      const confirmPassword = control.get('txtConfirmPassword')?.value;
+      return password &&
+        confirmPassword &&
+        password !== confirmPassword
+        ? { 'passwordMismatch': true }
+        : null;
+    };
+  }
+
+
+  
     
 user!:UserPostDTO
 
@@ -54,6 +72,8 @@ debugger
       
     }
 
+    if(this.form.valid){
+
 
     this.accountService.signUp(this.user).subscribe({
 
@@ -62,6 +82,7 @@ debugger
       }
     })
 
+  }
 
 
 

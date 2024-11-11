@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Booking</h5>
+          <h5 class="modal-title" id="exampleModalLabel"> {{ 'Bookings.EditBooking' | translate}}</h5>
           <button
             type="button"
             class="btn-close"
@@ -14,9 +14,9 @@
         <div class="modal-body">
           <form [formGroup]="form">
             <div class="form-group">
-              <label>Guest Name</label>
+              <label>{{ 'Guests.GuestName' | translate}}</label>
               <select class="form-select" formControlName="selectGuest">
-                <option selected disabled>Select Guest Name</option>
+                <option selected disabled>{{ 'Bookings.SelectGuest' | translate}}</option>
                 <option *ngFor="let guest of guests" [value]="guest.id">
                   {{ guest.firstName + " " + guest.lastName }}
                 </option>
@@ -29,14 +29,14 @@
                   form.hasError('required', 'selectGuest')
                 "
               >
-                This Field is required
+              {{ 'Validation.required' | translate}}
               </div>
             </div>
   
             <div class="form-group">
-              <label>Room Number</label>
+              <label>{{ 'Rooms.RoomNumber' | translate}}</label>
               <select class="form-select" formControlName="selectRoomNumber">
-                <option selected disabled>Select Room Number</option>
+                <option selected disabled>{{ 'Bookings.SelectRoom' | translate}}</option>
                 <option *ngFor="let room of rooms" [value]="room.id">
                   {{ room.roomNumber }}
                 </option>
@@ -49,12 +49,12 @@
                   form.hasError('required', 'selectRoomNumber')
                 "
               >
-                This Field is required
+              {{ 'Validation.required' | translate}}
               </div>
             </div>
   
             <div class="form-group">
-              <label>Expected Check In</label>
+              <label>{{ 'Bookings.ExpectedCheckIn' | translate}}</label>
               <input
                 type="date"
                 class="form-control"
@@ -68,12 +68,12 @@
                   form.hasError('required', 'dateExpectedCheckIn')
                 "
               >
-                This Field is required
+              {{ 'Validation.required' | translate}}
               </div>
             </div>
   
             <div class="form-group">
-              <label>Expected Check Out</label>
+              <label>{{ 'Bookings.ExpectedCheckOut' | translate}}</label>
               <input
                 type="date"
                 class="form-control"
@@ -87,7 +87,7 @@
                   form.hasError('required', 'dateExpectedCheckOut')
                 "
               >
-                This Field is required
+              {{ 'Validation.required' | translate}}
               </div>
             </div>
   
@@ -96,10 +96,9 @@
               class="btn btn-primary w-100 mt-3"
               (click)="onSubmit()"
             >
-              Edit Booking
+            {{ 'Bookings.EditBooking' | translate}}
             </button>
           </form>
-        </div>
       </div>
     </div>
   </div>

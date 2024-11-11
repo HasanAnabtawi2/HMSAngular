@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Room Type</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'Users.AddUser' | translate}}</h5>
         <button
           type="button"
           class="btn-close"
@@ -14,97 +14,164 @@
       <div class="modal-body">
         <form [formGroup]="form">
           <div class="form-group">
-            <label>Username</label>
+            <label>{{ 'Users.username' | translate}}</label>
             <input
               type="text"
               class="form-control"
               id="Username"
-              placeholder="Username"
+              [placeholder]="'Users.username' | translate"
               formControlName="txtUsername"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form.controls['txtUsername'].touched &&
                 form.hasError('required', 'txtUsername')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
           <div class="form-group">
-            <label>Name</label>
+            <label>{{ 'Users.Name' | translate}}</label>
             <input
               type="text"
               class="form-control"
               id="Name"
-              placeholder="Name"
+              [placeholder]="'Users.Name' | translate"
               formControlName="txtName"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form.controls['txtName'].touched &&
                 form.hasError('required', 'txtName')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
           <div class="form-group">
-            <label>Password</label>
+            <label>{{ 'Users.Password' | translate}}</label>
             <input
               type="password"
               class="form-control"
               id="Password"
-              placeholder="Password"
+              [placeholder]="'Users.Password' | translate"
               formControlName="txtPassword"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form.controls['txtPassword'].touched &&
                 form.hasError('required', 'txtPassword')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
-          </div>
+         
+
+          <span
+          class="invalid-feedback"
+            *ngIf="
+              form.controls['txtPassword'].touched &&
+              form.hasError('minlength', 'txtPassword')
+            "
+          >
+          {{ 'Validation.PasswordMin' | translate}}</span
+          >
+          
+  
+
+          <span
+          class="invalid-feedback"
+            *ngIf="
+              form.controls['txtPassword'].touched &&
+              form.hasError('pattern','txtPassword')
+            "
+          >
+          {{ 'Validation.SpecialChar' | translate}}
+            </span
+          >
+
+          
+        </div>
+  
+
+
+       
+
+        <div class="form-group">
+          <label> {{ 'Users.ConfirmPassword' | translate}}</label>
+          <input
+            type="password"
+            class="form-control"
+            id="Password"
+            [placeholder]="'Users.ConfirmPassword' | translate"
+            formControlName="txtConfirmPassword"
+          />
+          <span
+          class="invalid-feedback"
+            *ngIf="
+              form.controls['txtConfirmPassword'].touched &&
+              form.hasError('required', 'txtConfirmPassword')
+            "
+          >
+          {{ 'Validation.required' | translate}}</span
+          >
+
+
+          <span
+          class="invalid-feedback"
+            *ngIf="
+              form.controls['txtConfirmPassword'].touched &&
+              form.hasError('passwordMismatch')
+            "
+          >
+          {{ 'Validation.confirmPass' | translate}}
+            </span
+          >
+        </div>
 
           <div class="form-group">
-            <label>Email</label>
+            <label>{{ 'Users.Email' | translate}}</label>
             <input
               type="text"
               class="form-control"
               id="Email"
-              placeholder="Email"
+              [placeholder]="'Users.Email' | translate"
               formControlName="txtEmail"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form.controls['txtEmail'].touched &&
                 form.hasError('required', 'txtEmail')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
           <div class="form-group">
-            <label>Birth Date</label>
+            <label>{{ 'Users.BirthDate' | translate}}</label>
             <input
               type="date"
               class="form-control"
               id="DOB"
-              placeholder="DOb"
+              [placeholder]="'Users.BirthDate' | translate"
               formControlName="dateDOB"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form.controls['dateDOB'].touched &&
                 form.hasError('required', 'dateDOB')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
@@ -113,7 +180,7 @@
             class="btn btn-primary w-100 mt-3"
             (click)="onSubmit()"
           >
-            Add User
+          {{ 'Users.AddUser' | translate}}
           </button>
         </form>
       </div>

@@ -3,6 +3,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { roomTypeDTO } from '../DTOs/RoomTypeDTO';
 import { HttpClient } from '@angular/common/http';
 import { RoomTypeService } from '../Services/room-type.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-room-type',
@@ -26,7 +27,7 @@ export class RoomTypeComponent implements OnInit{
 
 roomTypes!:roomTypeDTO[];
 
-constructor(private modalService:NgbModal,private httpClient:HttpClient,private roomTypeService:RoomTypeService){
+constructor(private modalService:NgbModal,private httpClient:HttpClient,private roomTypeService:RoomTypeService,transletService:TranslateService){
 
 
 

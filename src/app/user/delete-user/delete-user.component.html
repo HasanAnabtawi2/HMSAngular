@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'Conf.del' | translate}}</h5>
         <button
           #closeModal
           type="button"
@@ -12,13 +12,13 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">Are you sure to delete.</div>
+      <div class="modal-body">{{ 'Conf.Qu' | translate}}</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
+          {{ 'Conf.close' | translate}}
         </button>
         <button type="button" class="btn btn-danger" (click)="onDelete()">
-          Delete
+          {{ 'Crud.Delete' | translate}}
         </button>
       </div>
     </div>

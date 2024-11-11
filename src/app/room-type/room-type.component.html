@@ -1,5 +1,5 @@
 <div class="container-fluid vh-100 overflow-auto">
-  <div class="row h2 mb-3 mt-4">Room Types</div>
+  <div class="row h2 mb-3 mt-4">{{'RoomTypes.RoomTypesTitle' | translate}}</div>
 
   <div class="row me-2">
     <div class="search-background container pt-3 rounded-top-4">
@@ -14,7 +14,7 @@
             data-bs-toggle="modal"
             data-bs-target="#AddRoomType"
           >
-            <i class="bi bi-plus"></i> Add Room Type</a
+            <i class="bi bi-plus"></i> {{'RoomTypes.AddRoomType' | translate}}</a
           >
         </div>
       </div>
@@ -25,9 +25,9 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Type</th>
-          <th scope="col">Capacity</th>
-          <th scope="col">Price</th>
+          <th scope="col">{{'RoomTypes.Type' | translate}}</th>
+          <th scope="col">{{'RoomTypes.Capacity' | translate}}</th>
+          <th scope="col">{{'RoomTypes.Price' | translate}}</th>
           <th scope="col" class="col-3"></th>
         </tr>
       </thead>
@@ -48,7 +48,7 @@
               data-bs-toggle="modal"
               (click)="onSelectedTypeId(type.id)"
             >
-              <i class="bi bi-pencil-square"></i> Edit</a
+              <i class="bi bi-pencil-square"></i> {{'Crud.Edit' | translate}}</a
             >
 
             <a
@@ -58,7 +58,7 @@
               data-bs-toggle="modal"
               (click)="deleteItem(type.id)"
             >
-              <i class="bi bi-trash-fill"></i> Delete</a
+              <i class="bi bi-trash-fill"></i> {{'Crud.Delete' | translate}}</a
             >
           </td>
         </tr>

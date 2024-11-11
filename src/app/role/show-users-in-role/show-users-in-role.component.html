@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Room Type</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'Roles.UsersIn' | translate}} {{selectedRoleName}}</h5>
         <button
           type="button"
           class="btn-close"
@@ -16,9 +16,9 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">User Name</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
+              <th scope="col">{{ 'Users.username' | translate}}</th>
+              <th scope="col">{{ 'Users.Name' | translate}}</th>
+              <th scope="col">{{ 'Users.Email' | translate}}</th>
             </tr>
           </thead>
           <tbody>

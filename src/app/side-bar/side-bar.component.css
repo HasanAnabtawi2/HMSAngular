@@ -1,5 +1,5 @@
 li a{
-    font-size:  x-large;
+    font-size:  large;
     
     
 }
@@ -9,6 +9,29 @@ color: #7E7E7E;
 margin-top: 5px;
 }
 
+.font-color-1{
+    color: #7E7E7E;
+}
+
+.font-xl{
+
+    font-size:x-large;
+}
+
+.font-xxl{
+
+    font-size:xx-large;
+}
+.font-lg{
+
+    font-size:large;
+}
+.font-lg{
+
+    font-size:medium;
+}
+
+
 .nav li a:hover{
     background-color: rgb(235, 240, 240);
 }
@@ -17,6 +40,14 @@ margin-top: 5px;
 .nav-pills .nav-link.active:hover{
     background-color: #3a86f8;
 
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.text-left{
+    text-align:left
 }
 
 

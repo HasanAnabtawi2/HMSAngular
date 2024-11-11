@@ -12,7 +12,7 @@
             data-bs-toggle="modal"
             data-bs-target="#AddUser"
           >
-            <i class="bi bi-plus"></i> Add User</a
+            <i class="bi bi-plus"></i> {{ 'Users.AddUser' | translate}}</a
           >
         </div>
       </div>
@@ -23,11 +23,11 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Username</th>
-          <th scope="col">Name</th>
-          <th scope="col">Date Of Birth</th>
-          <th scope="col">Email</th>
-          <th scope="col">Role</th>
+          <th scope="col">{{ 'Users.username' | translate}}</th>
+          <th scope="col">{{ 'Users.Name' | translate}}</th>
+          <th scope="col">{{ 'Users.DateOfBirth' | translate}}</th>
+          <th scope="col">{{ 'Users.Email' | translate}}</th>
+          <th scope="col">{{ 'Users.Role' | translate}}</th>
           <th scope="col" class="col-4"></th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@
               data-bs-toggle="modal"
               (click)="selectUsername(user.username)"
             >
-              <i class="bi bi-pencil-square"></i> Edit
+              <i class="bi bi-pencil-square"></i> {{ 'Crud.Edit' | translate}}
             </a>
             <a
               *ngIf="user.username != 'Hasan'"
@@ -62,7 +62,7 @@
               data-bs-target="#deleteUser"
               (click)="selectUsername(user.username)"
             >
-              <i class="bi bi-trash-fill"> </i> Delete
+              <i class="bi bi-trash-fill"> </i> {{ 'Crud.Delete' | translate}}
             </a>
           </td>
         </tr>

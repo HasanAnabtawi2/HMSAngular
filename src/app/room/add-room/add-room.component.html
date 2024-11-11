@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Room Type</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'Rooms.AddRoom' | translate}}</h5>
         <button
           #closeModal
           type="button"
@@ -15,43 +15,45 @@
       <div class="modal-body">
         <form [formGroup]="form1">
           <div class="form-group">
-            <label>Room Number</label>
+            <label>{{ 'Rooms.RoomNumber' | translate}}</label>
             <input
               type="text"
               class="form-control"
               id="RoomNumber"
-              placeholder="Room Number"
+              [placeholder]=" 'Rooms.RoomNumber' | translate"
               formControlName="txtRoomNumber"
             />
             <span
+            class="invalid-feedback"
               *ngIf="
                 form1.controls['txtRoomNumber'].touched &&
                 form1.hasError('required', 'txtRoomNumber')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
           <div class="form-group">
-            <label>Room Type</label>
+            <label>{{ 'RoomTypes.Type' | translate}}</label>
             <select
               class="form-select"
               formControlName="selectRoomType"
               aria-label="Room Type"
             >
-              <option selected disabled>Select room Type</option>
+              <option selected disabled>{{ 'Rooms.Select' | translate}}</option>
               <option *ngFor="let type of roomTypes" [value]="type.id">
                 {{ type.typeName }}
               </option>
             </select>
             <span
+            class="invalid-feedback"
               *ngIf="
                 form1.controls['selectRoomType'].touched &&
                 form1.hasError('required', 'selectRoomType')
               "
             >
-              This Field is required</span
+            {{ 'Validation.required' | translate}}</span
             >
           </div>
 
@@ -60,7 +62,7 @@
             class="btn btn-primary w-100 mt-3"
             (click)="onSubmit()"
           >
-            Add Room
+          {{ 'Rooms.AddRoom' | translate}}
           </button>
         </form>
       </div>

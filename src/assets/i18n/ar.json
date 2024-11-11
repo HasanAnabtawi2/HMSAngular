@@ -1,0 +1,160 @@
+{
+    "Login": {
+        "username": "اسم المستخدم",
+        "Password": "كلمة المرور",
+        "signIn": "تسجيل الدخول",
+        "Welcome": "مرحباً بك في نظام إدارة الفنادق",
+        "Title": "يرجى تسجيل الدخول للدخول إلى النظام"
+    },
+
+    "Sidebar": {
+        "Title": "إدارة الفنادق",
+        "RoomType": "أنواع الغرف",
+        "Rooms": "الغرف",
+        "Guests": "النزلاء",
+        "Bookings": "الحجوزات",
+        "Invoices": "الفواتير",
+        "Roles": "الأدوار",
+        "EditPassword": "تعديل كلمة المرور",
+        "Logout": "تسجيل الخروج"
+    },
+
+    "RoomTypes": {
+        "RoomTypesTitle": "أنواع الغرف",
+        "Type": "النوع",
+        "Capacity": "السعة",
+        "Price": "السعر",
+        "AddRoomType": "إضافة نوع غرفة",
+        "EditRoomType": "تعديل نوع الغرفة"
+    },
+
+    "Crud": {
+        "Edit": "تعديل",
+        "Delete": "حذف",
+        "ApplyFilters": "تطبيق الفلاتر",
+        "Search": "بحث",
+        "All": "الكل",
+        "Available": "متاح",
+        "Occupied": "محجوز"
+    },
+
+    "Rooms": {
+        "Rooms": "الغرف",
+        "RoomType": "نوع الغرفة",
+        "Status": "الحالة",
+        "RoomNumber": "رقم الغرفة",
+        "Capacity": "السعة",
+        "Price": "السعر",
+        "AddRoom": "إضافة غرفة",
+        "Select": "اختيار نوع الغرفة",
+        "EditRoom": "تعديل الغرفة"
+    },
+
+    "Guests": {
+        "FirstName": "الاسم الأول",
+        "LastName": "الاسم الأخير",
+        "DateOfBirth": "تاريخ الميلاد",
+        "Email": "البريد الإلكتروني",
+        "ContactNumber": "رقم الهاتف",
+        "DocumentNumber": "رقم الوثيقة",
+        "GuestName": "اسم الضيف",
+        "AddGuest": "إضافة ضيف",
+        "EditGuest": "تعديل ضيف",
+        "Guests": "النزلاء"
+    },
+
+    "Calendar": {
+        "Booked": "محجوز",
+        "Available": "متاح",
+        "BookingCalendar": "تقويم الحجز",
+        "start":"تاريخ البداية"
+    },
+
+    "Invoices": {
+        "InvoicesTitle": "الفواتير",
+        "PricePerDay": "السعر/اليوم",
+        "TotalAmount": "المبلغ الإجمالي",
+        "PaymentStatus": "حالة الدفع",
+        "InvoiceDate": "تاريخ الفاتورة",
+        "InvoiceNumber": "رقم الفاتورة",
+        "MarkAsPaid": "تحديد كمدفوع",
+        "Paid": "مدفوع",
+        "Unpaid": "غير مدفوع",
+        "Invoices": "الفواتير",
+        "Duration": "المدة"
+    },
+
+    "Bookings": {
+        "ExpectedCheckIn": "تاريخ الوصول المتوقع",
+        "ExpectedCheckOut": "تاريخ المغادرة المتوقع",
+        "ActualCheckIn": "تاريخ الوصول الفعلي",
+        "ActualCheckOut": "تاريخ المغادرة الفعلي",
+        "Actions": "الإجراءات",
+        "GenerateInvoice": "إنشاء فاتورة",
+        "CheckIn": "تسجيل الوصول",
+        "CheckOut": "تسجيل المغادرة",
+        "CancelBooking": "إلغاء الحجز",
+        "CheckInDate": "تاريخ الوصول",
+        "CheckOutDate": "تاريخ المغادرة",
+        "AddBooking": "إضافة حجز",
+        "EditBooking": "تعديل الحجز",
+        "Bookings": "الحجوزات",
+        "Checked-In": "تم تسجيل الوصول",
+        "Checked-Out": "تم تسجيل المغادرة",
+        "Canceled": "ملغى",
+        "Confirmed": "مؤكد",
+        "status": "حالة الحجز",
+        "SelectGuest": "اختر اسم الضيف",
+        "SelectRoom": "اختر رقم الغرفة"
+    },
+
+    "Users": {
+        "username": "اسم المستخدم",
+        "Name": "الاسم",
+        "DateOfBirth": "تاريخ الميلاد",
+        "Email": "البريد الإلكتروني",
+        "Role": "الدور",
+        "AddUser": "إضافة مستخدم",
+        "EditUser": "تعديل مستخدم",
+        "BirthDate": "تاريخ الميلاد",
+        "Users": "المستخدمون",
+        "Password": "كلمة المرور",
+        "ConfirmPassword": "تأكيد كلمة المرور"
+    },
+
+    "Roles": {
+        "AddUserToRole": "إضافة مستخدم إلى الدور",
+        "DeleteUserFromRole": "حذف مستخدم من الدور",
+        "ShowUsersInRole": "عرض المستخدمين في الدور",
+        "RoleName": "اسم الدور",
+        "AddUserTo": "إضافة مستخدم إلى",
+        "RemoveUserFrom": "إزالة مستخدم من",
+        "UsersIn": "المستخدمين في",
+        "Role": "الدور",
+        "Roles": "الأدوار"
+    },
+
+    "Validation": {
+        "required": "هذا الحقل مطلوب",
+        "minLength": "يجب ملء هذا الحقل",
+        "price": "يجب أن يكون السعر أكبر من أو يساوي 1",
+        "Capacity": "يجب أن تكون السعة أكبر من أو تساوي 1",
+        "Email": "تنسيق البريد الإلكتروني غير صالح",
+        "Phone": "تنسيق الهاتف غير صالح",
+        "PasswordMin": "الحد الأدنى لطول كلمة المرور هو 8",
+        "specialChar": "يجب أن تحتوي كلمة المرور على أحرف خاصة، أحرف كبيرة وصغيرة وأرقام",
+        "confirmPass": "كلمة المرور المؤكدة لا تتطابق مع كلمة المرور"
+    },
+
+    "Language": {
+        "Language": "اللغة",
+        "en": "الإنجليزية",
+        "ar": "العربية"
+    },
+    "Conf": {
+    "Qu": "هل أنت متأكد من حذف",
+    "close": "إغلاق",
+    "book": "هل أنت متأكد من",
+    "del": "تأكيد الحذف"
+}
+}

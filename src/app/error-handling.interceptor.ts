@@ -30,20 +30,20 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
             // case 403:
             //   this.router.navigate(['/403'])
             // break;
-            // case 400:
-            //   this.router.navigate(['/400'])
-            // break;
+          
+
             case 500:
               this.router.navigate(['/500'])
             break;
             
             default:
+              console.log(error.error['message'])
             Swal.fire({
-              position: "top-end",
+              position: "center-end",
               icon: "error",
-              title: "Something went wrong!",
+              title: error.error['message'],
               showConfirmButton: false,
-              timer: 5000,
+              timer: 1500,
             });
             break;
         }

@@ -1,55 +1,54 @@
 <div class="container-fluid vh-100 overflow-auto">
-  <div class="row h2 mb-3 mt-4">Bookings</div>
+  <div class="row h2 mb-3 mt-4">{{ 'Bookings.Bookings' | translate}} </div>
   <div class="row me-2">
     <div class="search-background container pt-3 rounded-top-4">
       <div class="d-flex justify-content-between align-items-center gap-1">
-        <label class="me-3">Status</label>
+        <label class="me-3">{{ 'Bookings.status' | translate}} </label>
         <select
           #statusSearch
           class="form-select me-3"
           aria-label="Default select example"
         >
-          <option selected value="">All</option>
-          <option value="Checked-In">Checked-In</option>
-          <option value="Checked-Out">Checked-Out</option>
-          <option value="Confirmed">Confirmed</option>
-          <option value="Canceled">Canceled</option>
+          <option selected value="">{{ 'Crud.All' | translate}}</option>
+          <option value="Checked-In">{{ 'Bookings.Checked-In' | translate}}</option>
+          <option value="Checked-Out">{{ 'Bookings.Checked-Out' | translate}}</option>
+          <option value="Confirmed">{{ 'Bookings.Confirmed' | translate}}</option>
+          <option value="Canceled">{{ 'Bookings.Canceled' | translate}}</option>
         </select>
 
-        <label class="me-3 text-nowrap">Guest Name</label>
+        <label class="me-3 text-nowrap">{{ 'Guests.GuestName' | translate}}</label>
         <input
           #guestNameSearch
           class="form-control me-2"
           type="search"
-          placeholder="Search"
+          [placeholder]="'Guests.GuestName' | translate"
           aria-label="Search"
         />
 
-        <label class="me-3 text-nowrap">Room Number</label>
+        <label class="me-3 text-nowrap">{{ 'Rooms.RoomNumber' | translate}}</label>
         <input
           #roomNumberSearch
           class="form-control"
           type="search"
-          placeholder="Search"
+          [placeholder]="'Rooms.RoomNumber' | translate"
           aria-label="Search"
         />
 
         
-        <label class="me-3 text-nowrap">Check-In Date </label>
+        <label class="me-3 text-nowrap">{{ 'Bookings.CheckIn' | translate}} </label>
         <input
           #checkInDate
           class="form-control"
           type="date"
-          placeholder="Search"
+          
           aria-label="Search"
         />
 
-        <label class="me-3 text-nowrap">Check-Out Date </label>
+        <label class="me-3 text-nowrap">{{ 'Bookings.CheckOut' | translate}}  </label>
         <input
           #checkOutDate
           class="form-control"
           type="date"
-          placeholder="Search"
           aria-label="Search"
         />
 
@@ -59,7 +58,7 @@
           class="btn btn-success text-nowrap ms-1"
           (click)="applyFilters()"
         >
-        <i class="bi bi-funnel-fill"></i>  Apply Filters
+        <i class="bi bi-funnel-fill"></i>  {{ 'Crud.ApplyFilters' | translate}} 
         </button>
 
         <a
@@ -69,7 +68,7 @@
           data-bs-toggle="modal"
           data-bs-target="#AddBooking"
         >
-          <i class="bi bi-plus"></i> Add Booking
+          <i class="bi bi-plus"></i> {{ 'Bookings.AddBooking' | translate}} 
         </a>
       </div>
     </div>
@@ -79,17 +78,17 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Room Number</th>
-          <th scope="col">Guest Name</th>
-          <th scope="col">Expected Check-In</th>
-          <th scope="col">Expected Check-Out</th>
-          <th scope="col">Actual Check-In</th>
-          <th scope="col">Actual Check-Out</th>
-          <th scope="col">Payment Status</th>
+          <th scope="col">{{ 'Rooms.RoomNumber' | translate}} </th>
+          <th scope="col">{{ 'Guests.GuestName' | translate}} </th>
+          <th scope="col">{{ 'Bookings.ExpectedCheckIn' | translate}} </th>
+          <th scope="col">{{ 'Bookings.ExpectedCheckOut' | translate}} </th>
+          <th scope="col">{{ 'Bookings.ActualCheckIn' | translate}}</th>
+          <th scope="col">{{ 'Bookings.ActualCheckOut' | translate}} </th>
+          <th scope="col">{{ 'Invoices.PaymentStatus' | translate}}</th>
 
-          <th scope="col">Booking Status</th>
+          <th scope="col">{{ 'Bookings.status' | translate}}</th>
 
-          <th scope="col">Actions</th>
+          <th scope="col">{{ 'Bookings.Actions' | translate}}</th>
         </tr>
       </thead>
       <tbody>
@@ -147,26 +146,26 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Actions
+              {{ 'Bookings.Actions' | translate}}
               </button>
               <div class="dropdown-menu ">
-                <a
+                <a *ngIf="book.paymentStatus!='Paid' && book.status=='Checked-In'"
                   class="dropdown-item text-primary cusrsor-pointer"
                   data-bs-target="#GenerateModal"
                   data-bs-toggle="modal"
                   title="Generate Invoice"
                   (click)="selectBooking(book.id)"
                 >
-                  <i class="bi bi-receipt"></i> Generate Invoice</a
+                  <i class="bi bi-receipt"></i> {{ 'Bookings.GenerateInvoice' | translate}}</a
                 >
-                <a
+                <a 
                   class="dropdown-item text-info cusrsor-pointer"
                   data-bs-target="#EditBooking"
                   data-bs-toggle="modal"
                   title="Edit Booking"
                   (click)="selectBooking(book.id)"
                 >
-                  <i class="bi bi-pencil-square"> </i> Edit</a
+                  <i class="bi bi-pencil-square"> </i> {{ 'Crud.Edit' | translate}}</a
                 >
                 <a
                   class="dropdown-item text-danger cusrsor-pointer"
@@ -175,37 +174,39 @@
                   (click)="selectBooking(book.id)"
                   title="Delete Booking"
                 >
-                  <i class="bi bi-trash-fill"></i> Delete</a
+                  <i class="bi bi-trash-fill"></i> {{ 'Crud.Delete' | translate}}</a
                 >
 
                 <a
+                *ngIf="book.status=='Confirmed'"
                   class="dropdown-item text-success cusrsor-pointer"
                   data-bs-target="#checkInModal"
                   data-bs-toggle="modal"
                   (click)="selectBooking(book.id)"
                   title="Check-In"
                 >
-                  <i class="bi bi-arrow-right-circle-fill"></i> Check-In</a
+                  <i class="bi bi-arrow-right-circle-fill"></i> {{ 'Bookings.CheckIn' | translate}}</a
                 >
 
-                <a
+                <a *ngIf="book.status=='Checked-In'"
                   class="dropdown-item text-warning cusrsor-pointer"
                   data-bs-target="#checkOutModal"
                   data-bs-toggle="modal"
                   (click)="selectBooking(book.id)"
                   title="Check-Out"
                 >
-                  <i class="bi bi-arrow-left-circle-fill"></i> Check-Out</a
+                  <i class="bi bi-arrow-left-circle-fill"></i> {{ 'Bookings.CheckOut' | translate}}</a
                 >
 
                 <a
+                *ngIf="book.status=='Confirmed'"
                   class="dropdown-item text-secondary cusrsor-pointer"
                   data-bs-target="#cancelModal"
                   data-bs-toggle="modal"
                   (click)="selectBooking(book.id)"
                   title="Cancel Booking"
                 >
-                  <i class="bi bi-calendar-x-fill"></i> Cancel Booking</a
+                  <i class="bi bi-calendar-x-fill"></i> {{ 'Bookings.CancelBooking' | translate}}</a
                 >
               </div>
             </div>
@@ -227,7 +228,7 @@
   (onRefresh)="LoadAll()"
   [modalId]="'checkInModal'"
   [bookingId]="selectedBookingId"
-  [buttonValue]="'Check In'"
+  [buttonValue]="'Bookings.CheckIn' | translate"
   [path]="'Booking/CheckIn'"
 ></app-confirmation>
 
@@ -235,7 +236,7 @@
   (onRefresh)="LoadAll()"
   [modalId]="'checkOutModal'"
   [bookingId]="selectedBookingId"
-  [buttonValue]="'Check Out'"
+  [buttonValue]="'Bookings.CheckOut' | translate"
   [path]="'Booking/CheckOut'"
 ></app-confirmation>
 
@@ -243,7 +244,7 @@
   (onRefresh)="LoadAll()"
   [modalId]="'cancelModal'"
   [bookingId]="selectedBookingId"
-  [buttonValue]="'Canecl Booking'"
+  [buttonValue]=" 'Bookings.CancelBooking' | translate"
   [path]="'Booking/CancelBooking'"
 ></app-confirmation>
 
@@ -251,7 +252,7 @@
   (onRefresh)="LoadAll()"
   [modalId]="'GenerateModal'"
   [bookingId]="selectedBookingId"
-  [buttonValue]="'Generate Invoice'"
+  [buttonValue]=" 'Bookings.Generate Invoice' | translate"
   [path]="'Invoice/GenerateInvoice'"
 ></app-confirmation>
 <app-edit-booking [selectedBookingId]="selectedBookingId"></app-edit-booking>

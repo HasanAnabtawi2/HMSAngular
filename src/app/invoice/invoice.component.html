@@ -1,34 +1,34 @@
 <div class="container-fluid vh-100 overflow-auto">
-  <div class="row h2 mb-3 mt-4">Invoices</div>
+  <div class="row h2 mb-3 mt-4">{{ 'Invoices.Invoices' | translate}}</div>
 
   <div class="row me-2 search-background rounded pt-3">
     <div class="d-flex justify-content-between align-items-center gap-1">
-      <label class="me-3 text-nowrap">Payment Status</label>
+      <label class="me-3 text-nowrap">{{ 'Invoices.PaymentStatus' | translate}}</label>
       <select
         #paymentStatusSearch
         class="form-select me-3"
         aria-label="Default select example"
       >
-        <option selected value="">All</option>
-        <option value="Paid">Paid</option>
-        <option value="UnPaid">UnPaid</option>
+        <option selected value="">{{ 'Crud.All' | translate}}</option>
+        <option value="Paid">{{ 'Invoices.Paid' | translate}}</option>
+        <option value="UnPaid">{{ 'Invoices.Unpaid' | translate}}</option>
       </select>
 
-      <label class="me-3 text-nowrap">Guest Name</label>
+      <label class="me-3 text-nowrap">{{ 'Guests.GuestName' | translate}}</label>
       <input
         #guestNameSearch
         class="form-control me-2"
         type="search"
-        placeholder="Search"
+        [placeholder]="'Guests.GuestName' | translate"
         aria-label="Search"
       />
 
-      <label class="me-3 text-nowrap">Room Type</label>
+      <label class="me-3 text-nowrap">{{ 'Rooms.RoomType' | translate}}</label>
       <input
         #roomTypeSearch
         class="form-control"
         type="search"
-        placeholder="Search"
+        [placeholder]="'Rooms.RoomType' | translate"
         aria-label="Search"
       />
 
@@ -36,7 +36,7 @@
         class="btn btn-success text-nowrap ms-1"
         (click)="onApplyFilters()"
       >
-      <i class="bi bi-funnel-fill"></i>  Apply Filters
+      <i class="bi bi-funnel-fill"></i>  {{ 'Crud.ApplyFilters' | translate}}
       </button>
     </div>
   </div>
@@ -45,14 +45,14 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Invoice No.</th>
-          <th scope="col">Guest Name</th>
-          <th scope="col">Room Type</th>
-          <th scope="col">Invoice Date</th>
-          <th scope="col">Duration</th>
-          <th scope="col">Price/ Day</th>
-          <th scope="col">Total Amount</th>
-          <th scope="col">Payment Status</th>
+          <th scope="col">{{ 'Invoices.InvoiceNumber' | translate}}</th>
+          <th scope="col">{{ 'Guests.GuestName' | translate}}</th>
+          <th scope="col">{{ 'Rooms.RoomType' | translate}}</th>
+          <th scope="col">{{ 'Invoices.InvoiceDate' | translate}}</th>
+          <th scope="col">{{ 'Invoices.Duration' | translate}}</th>
+          <th scope="col">{{ 'Invoices.PricePerDay' | translate}}</th>
+          <th scope="col">{{ 'Invoices.TotalAmount' | translate}}</th>
+          <th scope="col">{{ 'Invoices.PaymentStatus' | translate}}</th>
           <th scope="col" class="col-3"></th>
         </tr>
       </thead>
@@ -86,7 +86,7 @@
           </td>
 
           <td class="text-end pe-3">
-            <a
+            <a *ngIf="invoice.paymentStatus=='UnPaid'"
               class="btn btn-info btn-lg active me-2 button-Edit"
               role="button"
               aria-pressed="true"
@@ -94,16 +94,10 @@
               data-bs-toggle="modal"
               (click)="selectInvoiceId(invoice.id)"
             >
-              Mark As Paid</a
+            {{ 'Invoices.MarkAsPaid' | translate}}</a
             >
 
-            <a
-              class="btn btn-outline-light btn-lg active button-Delete"
-              role="button"
-              aria-pressed="true"
-            >
-              <i class="bi bi-trash-fill"></i> Delete</a
-            >
+
           </td>
         </tr>
       </tbody>
@@ -114,5 +108,5 @@
 <app-mark-as-paid
   [modalId]="'MarkAsPaidModal'"
   [invoiceId]="selectedInvoiceId"
-  [buttonValue]="'Mark As Paid'"
+  [buttonValue]=" 'Invoices.MarkAsPaid' | translate"
 ></app-mark-as-paid>

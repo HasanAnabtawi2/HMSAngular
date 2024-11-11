@@ -1,12 +1,12 @@
 export const Menu=[
 
-    {text:'<i class="bi bi-houses-fill"></i> <span class="d-none d-lg-inline"> Room Types</span>',path:'/home/roomTypes',roles:['Admin'] },
-    {text:'<i class="bi bi-suitcase-fill"></i> <span class="d-none d-lg-inline">Rooms</span>',path:'/home/rooms',roles:['Admin'] },
-    {text:'<i class="bi bi-person-vcard-fill"></i> <span class="d-none d-lg-inline">Guests</span>',path:'/home/guests',roles:['Admin','Front-Desk'] },
-    {text:' <i class="bi bi-calendar2-range-fill"></i> <span class="d-none d-lg-inline">Booking Calendar</span>',path:'/home/calendar',roles:['Admin','Front-Desk'] },
-    {text:'<i class="bi bi-calendar-week-fill"></i> <span class="d-none d-lg-inline"> Booking</span>',path:'/home/bookings',roles:['Admin','Front-Desk'] },
-    {text:' <i class="bi bi-pass-fill d-lg-inline"></i> <span class="d-none d-lg-inline">Invoices</span>',path:'/home/invoices',roles:['Admin','Front-Desk'] },
-    {text:'<i class="bi bi-person-fill"></i> <span class="d-none d-lg-inline">Users</span>',path:'/home/users',roles:['Admin'] },
-    {text:'<i class="bi bi-people-fill"></i> <span class="d-none d-lg-inline">Roles</span>',path:'/home/roles',roles:['Admin'] },
+    {iconClass:"bi bi-houses-fill",text:'RoomTypes.RoomTypesTitle',path:'/home/roomTypes',roles:['Admin'] },
+    {iconClass:"bi bi-suitcase-fill",text:'Rooms.Rooms',path:'/home/rooms',roles:['Admin'] },
+    {iconClass:"bi bi-person-vcard-fill",text:'Guests.Guests',path:'/home/guests',roles:['Admin','Front-Desk'] },
+    {iconClass:"bi bi-calendar2-range-fill",text:'Calendar.BookingCalendar',path:'/home/calendar',roles:['Admin','Front-Desk'] },
+    {iconClass:"bi bi-calendar-week-fill",text:'Bookings.Bookings',path:'/home/bookings',roles:['Admin','Front-Desk'] },
+    {iconClass:"bi bi-pass-fill d-lg-inline",text:'Invoices.InvoicesTitle',path:'/home/invoices',roles:['Admin','Front-Desk'] },
+    {iconClass:"bi bi-person-fill",text:'Users.Users',path:'/home/users',roles:['Admin'] },
+    {iconClass:"bi bi-people-fill",text:'Roles.Roles',path:'/home/roles',roles:['Admin'] },
 
 ]
