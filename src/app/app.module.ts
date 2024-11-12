@@ -57,6 +57,12 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateService} from "@ngx-translate/core";
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { from } from 'rxjs';
+
+
+
+
+
 const appRoutes: Routes = [
   { path: '', component: LoginComponent,canActivate:[loggedInGuard]  },
   { path: '400', component: Error400Component,  },
@@ -64,7 +70,8 @@ const appRoutes: Routes = [
   { path: '403', component: Error403Component,  },
   { path: '404', component: Error404Component,  },
   { path: '500', component: Error500Component,  },
-  { path: 'Dashboard', component: DashboardComponent,  },
+  
+
   {
     path: 'home',
     component: HomeComponent,
@@ -72,6 +79,7 @@ const appRoutes: Routes = [
     children: [
       { path: 'calendar', component: CalendarComponent },
       { path: 'rooms', component: RoomComponent ,canActivate:[adminGuard]},
+      { path: 'Dashboard', component: DashboardComponent,  },
       { path: 'roomTypes', component: RoomTypeComponent,canActivate:[adminGuard] },
       { path: 'guests', component: GuestComponent },
       {
@@ -147,6 +155,7 @@ const appRoutes: Routes = [
     Error500Component,
     EditPasswordComponent,
     DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -163,6 +172,7 @@ const appRoutes: Routes = [
         useFactory:HttpLoaderFactory,
         deps:[ HttpClient],
       }
+      
     })
   ], //adding packages
   providers: [provideHttpClient(),{provide: HTTP_INTERCEPTORS, useClass: AuthenticatonInterceptor, multi: true},{ provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }], //inject

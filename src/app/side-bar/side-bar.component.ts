@@ -56,7 +56,7 @@ filteredMenu:any =[]
 
   @ViewChild('selectLanguage ') selectLanguage!:ElementRef
 
-
+  bodyDir=document.getElementsByTagName('body')[0].dir
 
   onChangeLanguage(){
 

@@ -25,6 +25,7 @@ export class AddUserToRoleComponent implements OnChanges {
 
 
   ngOnChanges(): void {
+    
     this.roleService.getUsersNotInRole(this.selectedRoleName).subscribe({
       next:resData=>{this.usersNotInRole=resData}
     })
@@ -32,6 +33,7 @@ export class AddUserToRoleComponent implements OnChanges {
     this.form=this.formBuilder.group({
       selectUser:['',Validators.required]
     })
+
 
   }
 

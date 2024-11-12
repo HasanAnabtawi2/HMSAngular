@@ -3,6 +3,7 @@ import { an } from '@fullcalendar/core/internal-common';
 import { options } from '@fullcalendar/core/preact';
 
 import{Chart,registerables} from 'chart.js'
+import { DasboardService } from '../Services/dasboard.service';
 Chart.register(...registerables);
 @Component({
   selector: 'app-dashboard',
@@ -11,19 +12,39 @@ Chart.register(...registerables);
 })
 export class DashboardComponent implements OnInit {
  
-
-  public config:any={
-    type:'bar',
-    data:{},
-     
-      options:{
-        aspectRatio:1
-      }
-    }
-    chart:any
+constructor(private dashboardService:DasboardService){
+}
+  
+    totalIncome!:number
+    numberOfGuests!:number
+    numberOfRooms!:number
+    numberOfRoomTypes!:number
+    roomTypes:any=[]
+    numberOfUnPaidInvoices!:number
+    numberOfPaidInvoices!:number
+    checkedIn!:number
+    canceled!:number
+    checkedOut!:number
+    confirmed!:number
 
     ngOnInit(): void {
-      this.chart=new Chart('MyChart',this.config)
+      this.dashboardService.dashboardReport().subscribe({
+        next:resData=>{
+
+          this.totalIncome=resData.totalIncome
+          this.numberOfGuests=resData.totalNumberOfGuests
+          this.numberOfRooms=resData.numberOfRooms
+          this.numberOfRoomTypes=resData.numberOfTypes
+          this.roomTypes=resData.roomsByRoomTypes
+          this.numberOfUnPaidInvoices=resData.numberOfUnpaidInvoices
+          this.numberOfPaidInvoices=resData.numberOfPaidInvoices
+          this.canceled=resData.numberOfCanceledBookings
+          this.confirmed=resData.numberOfConfirmedBookings
+          this.checkedIn=resData.numberOfCheckedInBookings
+          this.checkedOut=resData.numberOfCheckedOutBookings
+
+        }
+      })
     }
 
 

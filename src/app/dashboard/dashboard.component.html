@@ -1,0 +1,149 @@
+<div class="container-fluid ">
+
+    <div class="row h2 mb-3 mt-4">Dashboard </div>
+    
+    
+    <div class="d-flex justify-content-between align-items-center  gap-1">
+<div class="card bg-light mb-3 col-3 " style="min-height: 150px">
+    
+    <div class="card-body">
+      <h5 class="card-title text-center"> <i class="bi bi-people guest-icon me-2 "></i>  Number of Guests</h5>
+      <p class="card-text text-center font-xxl ">{{numberOfGuests}}</p>
+    </div>
+</div>
+<div class="card bg-light mb-3 col-3" style=" min-height: 150px;">
+    <div class="card-body">
+        <h5 class="card-title text-center"> <i class="bi bi-cash-coin guest-icon "></i> Total Income</h5>
+        <p class="card-text text-center font-xxl ">{{totalIncome | currency}}  </p>
+      </div>
+    </div>
+
+    <div class="card bg-light mb-3 col-3" style=" min-height: 150px;">
+        <div class="card-body">
+            <h5 class="card-title text-center">  Number of Rooms</h5>
+            <p class="card-text text-center font-xxl ">{{numberOfRooms}} </p>
+          </div>
+        </div>
+
+        <div class="card bg-light mb-3 col-3" style=" min-height: 150px;">
+            <div class="card-body">
+                <h5 class="card-title text-center">  Number of RoomTypes</h5>
+                <p class="card-text text-center font-xxl ">{{numberOfRoomTypes}} </p>
+              </div>
+            </div>
+
+
+              
+</div>
+
+<div class="row">
+
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Room Type</th>
+                <th scope="col">Number of Available Rooms</th>
+                <th scope="col">Number of Occupied Rooms</th>
+
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of roomTypes ">
+                <th scope="row">{{i.type}}</th>
+                <td>{{i.availableRooms}}</td>
+                <td>{{i.occupiedRooms}}</td>
+              
+              </tr>
+    
+            </tbody>
+          </table>
+    </div>
+
+
+
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Booking Status</th>
+                <th scope="col">number of Bookings</th>
+               
+
+              
+              </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <th scope="row">Confirmed </th>
+                    <td>{{confirmed}}</td>
+                 
+                  
+                  </tr>
+
+              <tr >
+                <th scope="row">Canceled </th>
+                <td>{{canceled}}</td>
+             
+              
+              </tr>
+
+              <tr >
+                <th scope="row">Checked-In </th>
+                <td>{{checkedIn}}</td>
+             
+              
+              </tr>
+
+              
+              <tr >
+                <th scope="row">Checked-Out </th>
+                <td>{{checkedOut}}</td>
+             
+              
+              </tr>
+    
+            </tbody>
+          </table>
+
+
+    </div>
+
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Invoice Status</th>
+                <th scope="col">Number of Invoices</th>
+               
+
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <th scope="row">Paid </th>
+                <td>{{numberOfPaidInvoices}}</td>
+             
+              
+              </tr>
+
+              <tr >
+                <th scope="row">Unpaid </th>
+                <td>{{numberOfUnPaidInvoices}}</td>
+             
+              
+              </tr>
+    
+            </tbody>
+          </table>
+
+
+    </div>
+
+
+
+</div>
+
+</div>

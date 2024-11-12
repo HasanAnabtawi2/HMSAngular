@@ -1,0 +1,17 @@
+.font-xl{
+    font-size: x-large;
+}
+.font-xxl{
+    font-size: xx-large;
+}
+.font-lg{
+    font-size: large;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+.guest-icon{
+    color: green;
+    font-size: 30px;
+}
